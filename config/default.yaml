@@ -1,0 +1,22 @@
+project_root: .
+train_dir: train
+test_dir: test
+labels_csv: train_labels.csv
+submission_template: submission_example.csv
+resources_dir: resources
+output_dir: outputs
+
+preprocessing:
+  transform: antsRegistrationSyNQuickRepro[s]
+  n4_shrink_factor: 4
+  smoothing_fwhm_mm: 4.0
+  threads: 1
+
+modeling:
+  random_state: 20260924
+  outer_splits: 5
+  outer_repeats: 5
+  inner_splits: 4
+  scoring: balanced_accuracy
+  permutation_count: 99
+
